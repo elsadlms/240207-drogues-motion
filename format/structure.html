@@ -1,0 +1,69 @@
+<data class="MODULES">
+  <data class="motion">
+    <string class="backgroundImage">
+      https://assets-decodeurs.lemonde.fr/redacweb/240207-drogues-motion-map/map-background.png
+    </string>
+    <string class="urlTemplate">
+      https://assets-decodeurs.lemonde.fr/redacweb/240207-drogues-motion-map/map[index].png
+    </string>
+    <number class="indexPadding">5</number>
+    <number class="imageStart">1000</number>
+    <number class="imageStop">1146</number>
+  </data>
+</data>
+
+<data class="SLOTS">
+  <data>
+    <data class="destination">
+      <string class="selector">.scrllgngn-root</string>
+    </data>
+
+    <lm-html class="content">
+      <comp name="scrllgngn">
+        <string class="forceStickBlocks">before</string>
+        <string class="thresholdOffset">50%</string>
+        <data class="pages">
+          <data>
+            <string class="id">page-0</string>
+            <data class="blocks">
+              <data>
+                <string class="id">block-empty-scroll-48</string>
+                <data class="content">
+                  <div style="height: 48vh"></div>
+                </data>
+              </data>
+            </data>
+          </data>
+          <data>
+            <string class="id">page-1</string>
+            <data class="blocks">
+              <data>
+                <string class="id">block-empty-scroll-1000</string>
+                <data class="content">
+                  <div style="height: 1000vh"></div>
+                </data>
+              </data>
+
+              <data>
+                <string class="depth">back</string>
+                <string class="id">module-motion</string>
+                <string class="type">module</string>
+                <boolean class="trackScroll">true</boolean>
+                <data class="transitions">
+                  <data>
+                    <string>fade</string>
+                    <number>600</number>
+                  </data>
+                </data>
+                <data class="content">
+                  <!-- https://assets-decodeurs.lemonde.fr/redacweb/240207-drogues-motion-module/motion.js -->
+                  http://localhost:5173/public/build/motion.js
+                </data>
+              </data>
+            </data>
+          </data>
+        </data>
+      </comp>
+    </lm-html>
+  </data>
+</data>
