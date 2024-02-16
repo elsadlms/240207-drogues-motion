@@ -4,8 +4,16 @@
 
   export let progression
 
-  const backgroundImage =
-    'https://assets-decodeurs.lemonde.fr/redacweb/240207-drogues-motion-map/map-background.png'
+  let moduleConfig = {
+    start: "Buenaventura",
+    end: "Hambourg",
+    backgroundImage:
+      'https://assets-decodeurs.lemonde.fr/redacweb/240207-drogues-motion-map/map-background.png',
+  }
+
+  if (typeof window.LM_PAGE !== 'undefined') {
+    moduleConfig = window.LM_PAGE.tree?.value?.MODULES.motion
+  }
 
   let pathElement
   let lineLength
@@ -51,7 +59,7 @@
 </script>
 
 <div class="container" style={inlineStyle.join(' ')}>
-  <img src={backgroundImage} class="background-image" alt="" />
+  <img src={moduleConfig.backgroundImage} class="background-image" alt="" />
 
   <svg
     width="1920"
@@ -67,12 +75,12 @@
     <circle cx="491" cy="938.5" r={firstCircleRadius} fill="#FF0000" />
     <rect class="label-background label-background--first" x="342" y="860" width="300" height="60" fill="#000000" />
     <text class="label-text label-text--first" x="491" y="900" text-anchor="middle" alignment-baseline="baseline">
-      Buenaventura
+      {moduleConfig.start}
     </text>
     <circle cx="1690.5" cy="156.5" r={secondCircleRadius} fill="#FF0000" />
     <rect class="label-background label-background--second" x="1575" y="80" width="228" height="60" fill="#000000" />
     <text class="label-text label-text--second" x="1690.5" y="120" text-anchor="middle" alignment-baseline="baseline">
-      Hambourg
+      {moduleConfig.end}
     </text>
   </svg>
 </div>
