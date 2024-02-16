@@ -11,7 +11,10 @@ export default defineConfig(({ command }) => {
 
   const inputFile = process.env.SNIPPET === 'true' ? 'snippet' : 'main'
 
-  const filename = process.env.SNIPPET === 'true' ? 'snippet' : process.env.VITE_MODULE ?? 'build'
+  const filename =
+    process.env.SNIPPET === 'true'
+      ? 'snippet'
+      : process.env.VITE_MODULE ?? 'build'
 
   return {
     // [WIP] export multiple modules?
@@ -25,13 +28,15 @@ export default defineConfig(({ command }) => {
       ],
     },
     build: {
+      // pour export le css séparément
+      cssCodeSplit: false,
       rollupOptions: {
         input: `./src/${inputFile}.js`,
         output: {
           format: 'iife',
           dir: './public/build',
           entryFileNames: `${filename}.js`,
-          assetFileNames: 'bundle.css',
+          assetFileNames: `${filename}.[ext]`,
           footer: command === 'build' && moduleExports,
         },
       },
